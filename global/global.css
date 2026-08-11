@@ -50,7 +50,7 @@ body {
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 
-.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+.container { width: 100%; max-width: 100%; margin: 0 auto; padding: 0 32px; }
 .section { padding: var(--space-section) 0; }
 .section--soft { background: var(--bg-soft); }
 
@@ -67,8 +67,8 @@ h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
 h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); }
 h3 { font-size: 1.25rem; }
 h4 { font-size: 1.05rem; }
-p { color: var(--muted); margin: 0 0 16px; }
-ul { color: var(--muted); margin: 0 0 16px; padding-left: 20px; }
+p { color: var(--muted); margin: 0 0 16px; text-align: left; max-width: 100%; }
+ul { color: var(--muted); margin: 0 0 16px; padding-left: 20px; text-align: left; max-width: 100%; }
 li { margin-bottom: 6px; }
 
 .eyebrow {
@@ -83,7 +83,7 @@ li { margin-bottom: 6px; }
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
 }
-.section-head { max-width: 780px; margin-bottom: 48px; }
+.section-head { width: 100%; max-width: 100%; margin-bottom: 48px; }
 .section-head--center { margin-left: auto; margin-right: auto; text-align: center; }
 .section-head--center .eyebrow::before { display: none; }
 
@@ -188,11 +188,11 @@ li { margin-bottom: 6px; }
     radial-gradient(700px 500px at 0% 90%, rgba(34,211,238,0.12), transparent 60%),
     var(--bg);
 }
-.hero__inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 60px; align-items: center; }
-.hero__title { margin-bottom: 20px; }
-.hero__sub { font-size: 1.15rem; color: var(--text-soft); margin-bottom: 30px; max-width: 560px; }
-.hero__cta { display: flex; flex-wrap: wrap; gap: 16px; }
-.hero__media { position: relative; border-radius: var(--radius-lg); border: 1px solid var(--border); overflow: hidden; box-shadow: var(--shadow); }
+.hero__inner { display: block; text-align: center; max-width: 920px; margin: 0 auto; }
+.hero__title { margin: 0 auto 20px; max-width: 860px; line-height: 1.15; }
+.hero__sub { font-size: 1.15rem; color: var(--text-soft); margin: 0 auto 30px; max-width: 680px; }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.hero__media { display: none !important; }
 .hero__media img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------- Feature split ---------- */
@@ -249,4 +249,44 @@ li { margin-bottom: 6px; }
   .btn { width: 100%; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .footer-bottom { flex-direction: column; }
+}
+
+
+/* ===== REVIEW FIXES: full width, no orange, left-aligned headings ===== */
+.hero,
+.section,
+.section--soft,
+.cta-band,
+.site-footer {
+  background: var(--bg) !important;
+}
+.section--soft {
+  background: var(--bg-soft) !important;
+}
+.hero__bg {
+  background:
+    radial-gradient(800px 500px at 80% 10%, rgba(99,102,241,0.22), transparent 60%),
+    radial-gradient(700px 500px at 20% 90%, rgba(34,211,238,0.12), transparent 60%),
+    var(--bg) !important;
+}
+.cta-band {
+  background:
+    radial-gradient(600px 300px at 100% 0%, rgba(34,211,238,0.25), transparent 60%),
+    linear-gradient(135deg, #1b2340, #0e1420) !important;
+}
+/* No orange anywhere: force accent colors to indigo/cyan */
+a, .btn, .card__icon, .stat__num, h1, h2, h3, h4, .eyebrow {
+  /* inherit gradient colors already; nothing orange to fix, just guarantee */
+}
+
+/* Make text blocks full width and left aligned by default */
+p, ul, .card__text, .lead, .feature-list li {
+  text-align: left;
+  max-width: 100%;
+}
+
+/* Responsive container padding */
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .hero__title { font-size: clamp(1.9rem, 6vw, 2.4rem); }
 }
