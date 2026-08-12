@@ -326,3 +326,32 @@ p, ul, .card__text, .lead, .feature-list li {
   .accordion__head { padding: 16px 18px; font-size: 0.95rem; }
   .accordion__inner { padding: 0 18px 18px; }
 }
+
+/* ---------- Mobile Hamburger Menu ---------- */
+.nav-toggle {
+  display: none;
+  background: none; border: 1px solid var(--border); border-radius: 10px;
+  width: 44px; height: 40px; cursor: pointer; padding: 8px;
+  flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+  margin-left: auto;
+}
+.nav-toggle span {
+  display: block; width: 22px; height: 2px; background: var(--text);
+  border-radius: 2px; transition: transform .3s ease, opacity .3s ease;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+  .header-inner { flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .nav {
+    display: none; width: 100%; flex-direction: column; align-items: flex-start; gap: 4px;
+    padding-top: 10px; border-top: 1px solid var(--border); margin-top: 6px;
+  }
+  .nav.open { display: flex; }
+  .nav a { display: block; width: 100%; padding: 9px 0; font-size: 1.05rem; }
+  .nav-cta { display: none; }
+  .brand { margin-right: auto; }
+}
