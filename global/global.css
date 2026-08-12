@@ -305,3 +305,24 @@ p, ul, .card__text, .lead, .feature-list li {
 .form-field input:focus,
 .form-field textarea:focus { border-color: var(--accent-1); background: var(--surface); }
 .form-field textarea { resize: vertical; }
+
+/* ---------- Mobile Navigation (responsive) ---------- */
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; padding: 14px 18px; }
+  .nav { width: 100%; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .nav a { display: block; width: 100%; padding: 8px 0; font-size: 1.05rem; }
+  .nav-cta { width: 100%; margin-top: 6px; }
+  .hero { padding: 56px 0 40px; }
+  .hero__inner { text-align: center; }
+  .hero__title { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+  .hero__sub { font-size: 1.05rem; }
+  .cta-band { padding: 40px 20px; }
+  .grid--4, .grid--3, .grid--2 { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
+  .section { padding: 48px 0; }
+  .container { padding: 0 18px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .card { padding: 22px; }
+  .accordion__head { padding: 16px 18px; font-size: 0.95rem; }
+  .accordion__inner { padding: 0 18px 18px; }
+}
