@@ -71,3 +71,10 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();
+/* Contact form (static) - show success message on submit */
+function contactSubmit(form) {
+  var note = form.querySelector('#cf-note');
+  if (note) note.style.display = 'block';
+  form.reset();
+  return false; /* no backend on static site */
+}
