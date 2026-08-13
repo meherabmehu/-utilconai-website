@@ -355,3 +355,16 @@ p, ul, .card__text, .lead, .feature-list li {
   .nav-cta { display: none; }
   .brand { margin-right: auto; }
 }
+
+/* ===== REVIEW FIX: left-align CTA + consistent alignment + single button ===== */
+.cta-band { text-align: left; }
+.cta-band h2 { text-align: left; }
+.cta-band p { text-align: left; margin-left: 0; margin-right: auto; }
+.cta-band .btn { justify-content: flex-start; }
+/* heading + sub always left + full width */
+.section-head { text-align: left; }
+.section-head h2, .section-head .eyebrow { text-align: left; }
+.section-head--center { text-align: left; }
+.section-head--center .eyebrow::before { display: inline-block; }
+/* hide secondary/ghost buttons in CTA (single button look) */
+.cta-band .btn--ghost { display: none; }
